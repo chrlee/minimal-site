@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import { Gallery } from "@/components/Gallery";
+import { FashionData } from "@/data/fashion";
 
 export default function Home() {
   return (
@@ -12,7 +13,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Gallery data={[]} />
+        <div className={styles.contentWrapper}>
+          <div className={styles.title}>
+              <h1>SELECTED WORK</h1>
+          </div>
+          <Gallery data={FashionData} />
+        </div>
       </main>
     </>
   );

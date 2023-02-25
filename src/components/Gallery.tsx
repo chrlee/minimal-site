@@ -6,7 +6,7 @@ import { GalleryGrid } from "./GalleryGrid";
 export interface GalleryItem {
     title: string;
     subtitle?: string;
-    img?: React.ComponentProps<typeof Image>
+    img?: Pick<React.ComponentProps<typeof Image>, "src" | "alt">
     md?: string;
 }
 
@@ -16,23 +16,27 @@ interface GalleryProps {
 
 export const Gallery = ({ data }: GalleryProps) => {
     const [selectedIndex, setSelectedIndex] = useState(0);
+    if(!data.length) return null;
+
+    const galleryData = data[selectedIndex];
 
     return (
-        <>
-            <div className={styles.title}>
-                <h1>SELECTED WORK</h1>
-            </div>
+        <div className={styles.galleryWrapper}>
             <div className={styles.center}>
-                <>
                     {
-                        data[selectedIndex]?.img ?? <Image {...data[selectedIndex]?.img} /> 
+                        galleryData.img ?
+                        <Image
+                            src={galleryData.img.src}
+                            alt={galleryData.img.alt}
+                            placeholder="blur"
+                            className={styles.image}
+                        /> : null
                     }
                     {
-                        data[selectedIndex]?.md ?? <span>{data[selectedIndex]?.md}</span>
+                        galleryData.md ?? <span>{galleryData.md}</span>
                     }
-                </>
             </div>
             <GalleryGrid handleSelect={setSelectedIndex} />
-        </>
+        </div>
     )
 }
