@@ -15,7 +15,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.contentWrapper}>
           <div className={styles.title}>
-              <h1>SELECTED WORK</h1>
+              <h1>SELECTED WORKS</h1>
           </div>
           <Gallery data={FashionData} />
         </div>

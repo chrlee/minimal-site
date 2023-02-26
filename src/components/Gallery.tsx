@@ -10,7 +10,7 @@ export interface GalleryItem {
     md?: string;
 }
 
-interface GalleryProps {
+export interface GalleryProps {
     data: GalleryItem[];
 }
 
@@ -30,13 +30,14 @@ export const Gallery = ({ data }: GalleryProps) => {
                             alt={galleryData.img.alt}
                             placeholder="blur"
                             className={styles.image}
+                            loading="eager"
                         /> : null
                     }
                     {
                         galleryData.md ?? <span>{galleryData.md}</span>
                     }
             </div>
-            <GalleryGrid handleSelect={setSelectedIndex} />
+            <GalleryGrid data={data} selectedIndex={selectedIndex} handleSelect={setSelectedIndex} />
         </div>
     )
 }
