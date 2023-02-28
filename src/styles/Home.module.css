@@ -26,10 +26,17 @@
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   max-width: 100%;
   margin-top: 3rem;
+}
+
+.grid h2 {
+  font-weight: 400;
+  font-size: 1rem;
+  margin: 0;
+  margin-bottom: 1rem;
 }
 
 .image {
@@ -41,16 +48,11 @@
 
 .selectedLink {
   font-style: italic;
-  font-weight: 400;
-  font-size: 1rem;
-  margin: 0;
 }
 
 .unselectedLink {
-  font-weight: 400;
-  font-size: 1rem;
-  margin: 0;
   color: #7F8C8D;
+  cursor: pointer;
 }
 
 .center {
@@ -95,7 +97,6 @@
     margin: 2rem;
   }
   .grid {
-    grid-template-columns: 1fr;
     margin-top: 0;
   }
 }

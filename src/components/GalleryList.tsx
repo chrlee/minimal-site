@@ -1,12 +1,12 @@
 import styles from "@/styles/Home.module.css";
 import { GalleryProps } from "./Gallery";
 
-interface GalleryGridProps extends GalleryProps {
+interface GalleryListProps extends GalleryProps {
     selectedIndex: number;
     handleSelect: (index: number) => void;
 }
 
-export const GalleryGrid = ({ selectedIndex, handleSelect, data }: GalleryGridProps) => {
+export const GalleryList = ({ selectedIndex, handleSelect, data }: GalleryListProps) => {
     return (
         <div className={styles.grid}>
             {
@@ -16,12 +16,14 @@ export const GalleryGrid = ({ selectedIndex, handleSelect, data }: GalleryGridPr
                     <h2
                         key={index}
                         className={selected ? styles.selectedLink : styles.unselectedLink}
+                        onClick={() => handleSelect(index)}
                     >
                         {item.title}
                     </h2>
                     )
                 })
             }
+            <hr />
         </div>
     )
 }

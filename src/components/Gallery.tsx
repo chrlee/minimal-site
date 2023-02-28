@@ -1,12 +1,12 @@
 import { useState } from "react"
 import styles from "@/styles/Home.module.css";
 import Image from "next/image";
-import { GalleryGrid } from "./GalleryGrid";
+import { GalleryList } from "./GalleryList";
 
 export interface GalleryItem {
     title: string;
     subtitle?: string;
-    img?: Pick<React.ComponentProps<typeof Image>, "src" | "alt">
+    img?: Pick<React.ComponentProps<typeof Image>, "src">
     md?: string;
 }
 
@@ -27,7 +27,7 @@ export const Gallery = ({ data }: GalleryProps) => {
                         galleryData.img ?
                         <Image
                             src={galleryData.img.src}
-                            alt={galleryData.img.alt}
+                            alt={galleryData.title}
                             placeholder="blur"
                             className={styles.image}
                             loading="eager"
@@ -37,7 +37,7 @@ export const Gallery = ({ data }: GalleryProps) => {
                         galleryData.md ?? <span>{galleryData.md}</span>
                     }
             </div>
-            <GalleryGrid data={data} selectedIndex={selectedIndex} handleSelect={setSelectedIndex} />
+            <GalleryList data={data} selectedIndex={selectedIndex} handleSelect={setSelectedIndex} />
         </div>
     )
 }

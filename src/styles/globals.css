@@ -1,9 +1,14 @@
 body {
-    -ms-overflow-style: none; /* for Internet Explorer, Edge */
-    scrollbar-width: none; /* for Firefox */
-    overflow-y: scroll; 
-  }
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll; 
+}
   
-  body::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
-  }
+body::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+hr {
+  width: 100%;
+  color: #7F8C8D;
+}
