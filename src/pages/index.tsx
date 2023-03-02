@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import { Gallery } from "@/components/Gallery";
 import { FashionData } from "@/data/fashion";
+import { TechData } from "@/data/tech";
 
 export default function Home() {
   return (
@@ -17,7 +18,7 @@ export default function Home() {
           <div className={styles.title}>
               <h1>SELECTED WORKS</h1>
           </div>
-          <Gallery data={FashionData} />
+          <Gallery fashionData={FashionData} techData={TechData} />
         </div>
       </main>
     </>

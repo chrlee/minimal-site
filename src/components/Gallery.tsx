@@ -11,14 +11,15 @@ export interface GalleryItem {
 }
 
 export interface GalleryProps {
-    data: GalleryItem[];
+    fashionData: GalleryItem[];
+    techData: GalleryItem[];
 }
 
-export const Gallery = ({ data }: GalleryProps) => {
+export const Gallery = ({ fashionData, techData }: GalleryProps) => {
     const [selectedIndex, setSelectedIndex] = useState(0);
-    if(!data.length) return null;
+    if(!fashionData.length && !techData.length) return null;
 
-    const galleryData = data[selectedIndex];
+    const galleryData = [...fashionData, ...techData][selectedIndex];
 
     return (
         <div className={styles.galleryWrapper}>
@@ -37,7 +38,12 @@ export const Gallery = ({ data }: GalleryProps) => {
                         galleryData.md ?? <span>{galleryData.md}</span>
                     }
             </div>
-            <GalleryList data={data} selectedIndex={selectedIndex} handleSelect={setSelectedIndex} />
+            <GalleryList
+                fashionData={fashionData}
+                techData={techData}
+                selectedIndex={selectedIndex}
+                handleSelect={setSelectedIndex}
+            />
         </div>
     )
 }
