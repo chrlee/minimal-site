@@ -1,10 +1,11 @@
 import { GalleryItem } from "@/components/Gallery";
-import bulan from 'public/img/bulan.jpg'
+import bulan from 'public/img/bulan.jpg';
+import shopbop from 'public/md/shopbop.md';
 
 export const TechData: GalleryItem[] = [
     {
         title: "Shopbop",
-        md: "Test"
+        md: shopbop,
     },
     {
         title: "Amazon",
@@ -13,7 +14,7 @@ export const TechData: GalleryItem[] = [
         }
     },
     {
-        title: "Kami",
+        title: "Kinhub",
         img: {
             src: bulan
         }

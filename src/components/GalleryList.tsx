@@ -13,16 +13,15 @@ export const GalleryList = ({ selectedIndex, handleSelect, fashionData, techData
                 [...fashionData, ...techData].map((item, index) => {
                     const selected = index === selectedIndex
                     return (
-                    <>
+                    <div key={index}>
                         <h2
-                            key={index}
                             className={selected ? styles.selectedLink : styles.unselectedLink}
                             onClick={() => handleSelect(index)}
                         >
                             {item.title}
                         </h2>
                         {index === fashionData.length-1 ? <hr /> : null}
-                    </>
+                    </div>
                     )
                 })
             }

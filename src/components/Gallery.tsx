@@ -2,6 +2,7 @@ import { useState } from "react"
 import styles from "@/styles/Home.module.css";
 import Image from "next/image";
 import { GalleryList } from "./GalleryList";
+import { GalleryMd } from "./GalleryMd";
 
 export interface GalleryItem {
     title: string;
@@ -17,6 +18,7 @@ export interface GalleryProps {
 
 export const Gallery = ({ fashionData, techData }: GalleryProps) => {
     const [selectedIndex, setSelectedIndex] = useState(0);
+
     if(!fashionData.length && !techData.length) return null;
 
     const galleryData = [...fashionData, ...techData][selectedIndex];
@@ -35,7 +37,7 @@ export const Gallery = ({ fashionData, techData }: GalleryProps) => {
                         /> : null
                     }
                     {
-                        galleryData.md ?? <span>{galleryData.md}</span>
+                        galleryData.md ? <GalleryMd markdownSource={galleryData.md} /> : null
                     }
             </div>
             <GalleryList
