@@ -41,12 +41,9 @@
   margin-bottom: 1rem;
 }
 
-.grid > div {
-  width: max-content;
-}
-
-.grid > hr {
-  margin: 1rem 0 2rem 0;
+.grid hr {
+  display: inline-block;
+  margin-bottom: 1rem;
 }
 
 .image {
